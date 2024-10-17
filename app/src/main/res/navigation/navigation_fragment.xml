@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_fragment"
+    app:startDestination="@id/newsListFragment">
+
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.example.news.fragment.NewsListFragment"
+        android:label="NewsListFragment" >
+        <action
+            android:id="@+id/action_newsListFragment_to_newsFragment"
+            app:popUpToInclusive="true"
+            app:restoreState="true"
+            app:popUpToSaveState="true"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_newsListFragment_to_favouriteNewsFragment"
+            app:popUpToInclusive="true"
+            app:restoreState="true"
+            app:popUpToSaveState="true"
+            app:destination="@id/favouriteNewsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.news.fragment.NewsFragment"
+        android:label="NewsFragment" >
+
+        <argument
+            android:name="article"
+            app:argType="com.example.news.data.remote.response.Article" />
+        <action
+            android:id="@+id/action_newsFragment_to_newsListFragment"
+            app:popUpToInclusive="true"
+            app:restoreState="true"
+            app:popUpToSaveState="true"
+            app:destination="@id/newsListFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/favouriteNewsFragment"
+        android:name="com.example.news.fragment.FavouriteNewsFragment"
+        android:label="FavouriteNewsFragment" >
+        <action
+            android:id="@+id/action_favouriteNewsFragment_to_newsFragment"
+            app:popUpToInclusive="true"
+            app:restoreState="true"
+            app:popUpToSaveState="true"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_favouriteNewsFragment_to_newsListFragment"
+            app:popUpToInclusive="true"
+            app:restoreState="true"
+            app:popUpToSaveState="true"
+            app:destination="@id/newsListFragment" />
+    </fragment>
+
+</navigation>
